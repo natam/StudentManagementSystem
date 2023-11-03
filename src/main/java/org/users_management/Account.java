@@ -46,4 +46,17 @@ public class Account {
     public void setUserRole(UserRoles userRole) {
         this.userRole = userRole;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public String toString(){
+        return "account: " + userName + ", " + password + ", " + userRole;
+    }
 }

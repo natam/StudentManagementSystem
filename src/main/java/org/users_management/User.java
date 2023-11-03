@@ -1,5 +1,6 @@
 package org.users_management;
 
+import java.lang.foreign.SymbolLookup;
 import java.time.LocalDateTime;
 
 public class User {
@@ -56,5 +57,24 @@ public class User {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder();
+        return str.append(id)
+                .append(", ")
+                .append(name)
+                .append(", ")
+                .append(email)
+                .append(", ")
+                .append(email)
+                .append(", ")
+                .append(isActive)
+                .append(", ")
+                .append(creationDate)
+                .append(", ")
+                .append(account.toString())
+                .append(System.lineSeparator()).toString();
     }
 }
