@@ -42,8 +42,9 @@ public class UI {
             case "2":
                 register();
                 break;
-            case "3":
-                currentUser.getUserRole().printModulesNavigationOptions();
+            case "3":if (currentUser.getUserRole() == UserRoles.ADMIN) {
+                printUsersCommandOptions();
+            } else out.println("You don't have permissions");
                 break;
             case "4":
                 if (currentUser.getUserRole() != UserRoles.STUDENT) {
