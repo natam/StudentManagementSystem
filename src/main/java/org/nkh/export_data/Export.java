@@ -1,7 +1,7 @@
-package org.export_data;
+package org.nkh.export_data;
 
-import org.students_management.Student;
-import org.users_management.User;
+import org.nkh.students_management.Student;
+import org.nkh.users_management.User;
 
 import java.io.FileWriter;
 import java.io.IOException;

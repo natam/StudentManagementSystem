@@ -1,4 +1,4 @@
-package org.students_management;
+package org.nkh.students_management;
 
 public class Course {
     private int id;

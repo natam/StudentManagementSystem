@@ -1,10 +1,10 @@
-package org.cli;
+package org.nkh.cli;
 
-import org.students_management.Student;
-import org.users_management.User;
-import org.users_management.UserRoles;
-import org.users_management.Users;
-import org.utils.Utils;
+import org.nkh.students_management.Student;
+import org.nkh.users_management.User;
+import org.nkh.users_management.UserRoles;
+import org.nkh.users_management.Users;
+import org.nkh.utils.Utils;
 
 import java.util.*;
 
