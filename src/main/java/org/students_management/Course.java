@@ -3,10 +3,19 @@ package org.students_management;
 public class Course {
     private int id;
     private String title;
+    private double grade;
 
     public Course(int id, String title) {
         this.id = id;
         this.title = title;
+    }
+
+    public double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(double grade) {
+        this.grade = grade;
     }
 
     public int getId() {

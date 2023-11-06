@@ -1,30 +1,28 @@
 package org.users_management;
 
-import java.lang.foreign.SymbolLookup;
 import java.time.LocalDateTime;
 
 public class User {
-    private int id;
+    private String id;
     private String name;
     private String email;
     private boolean isActive;
     private LocalDateTime creationDate;
 
-    private Account account;
+    private String userName;
+    private String password;
+    UserRoles userRole;
 
-    public User(int id, String name, String email) {
-        this.id = id;
+    public User(String name, String email, UserRoles userRole) {
+        this.userRole = userRole;
+        this.id = userRole + "_" + System.currentTimeMillis();
         this.name = name;
         this.email = email;
         this.creationDate = LocalDateTime.now();
     }
 
-    public int getId() {
+    public String getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -51,12 +49,28 @@ public class User {
         this.creationDate = creationDate;
     }
 
-    public Account getAccount() {
-        return account;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UserRoles getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRoles userRole) {
+        this.userRole = userRole;
     }
 
     @Override
@@ -74,7 +88,11 @@ public class User {
                 .append(", ")
                 .append(creationDate)
                 .append(", ")
-                .append(account.toString())
+                .append(userRole)
+                .append(", ")
+                .append(userName)
+                .append(", ")
+                .append(password)
                 .append(System.lineSeparator()).toString();
     }
 }
