@@ -1,5 +1,9 @@
 package org.nkh.users_management;
 
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import org.nkh.students_management.Course;
 import org.nkh.students_management.Student;
 import org.nkh.students_management.Teacher;
@@ -33,11 +37,22 @@ public class Users {
                 newUser = new Teacher(name, email);
             }
             if (newUser != null) {
-                newUser.setUserName(userName);
-                newUser.setPassword(password);
-                credentials.put(userName, password);
-                users.add(newUser);
-                return true;
+                ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+                Validator validator = factory.getValidator();
+                Set<ConstraintViolation<User>> violations = validator.validate(newUser);
+                if (!violations.isEmpty()) {
+                    System.out.println("User can not be created.");
+                    for (ConstraintViolation<User> violation : violations) {
+                        System.out.println(violation.getMessage());
+                    }
+                    return false;
+                } else {
+                    newUser.setUserName(userName);
+                    newUser.setPassword(password);
+                    credentials.put(userName, password);
+                    users.add(newUser);
+                    return true;
+                }
             } else return false;
         }
     }

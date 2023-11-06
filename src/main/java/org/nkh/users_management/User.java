@@ -1,10 +1,13 @@
 package org.nkh.users_management;
 
+import jakarta.validation.constraints.Email;
+
 import java.time.LocalDateTime;
 
 public class User {
     private String id;
     private String name;
+    @Email
     private String email;
     private boolean isActive;
     private LocalDateTime creationDate;
