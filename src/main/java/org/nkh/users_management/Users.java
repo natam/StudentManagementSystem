@@ -1,8 +1,8 @@
-package org.users_management;
+package org.nkh.users_management;
 
-import org.students_management.Course;
-import org.students_management.Student;
-import org.students_management.Teacher;
+import org.nkh.students_management.Course;
+import org.nkh.students_management.Student;
+import org.nkh.students_management.Teacher;
 
 import java.util.*;
 

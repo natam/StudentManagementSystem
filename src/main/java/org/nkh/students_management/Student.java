@@ -1,7 +1,7 @@
-package org.students_management;
+package org.nkh.students_management;
 
-import org.users_management.User;
-import org.users_management.UserRoles;
+import org.nkh.users_management.User;
+import org.nkh.users_management.UserRoles;
 
 import java.util.ArrayList;
 import java.util.Comparator;
