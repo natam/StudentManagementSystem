@@ -119,6 +119,10 @@ public class Users {
         return getStudents().stream().filter(student -> student.findCourse(courseTitle) != null).toList();
     }
 
+    public List<Student> searchStudent(String query) {
+        return getStudents().stream().filter(user -> (user.getName().contains(query) || user.getEmail().contains(query) || String.valueOf(user.getId()).equals(query))).toList();
+    }
+
     public Set<String> getAllCourses() {
         Set<String> courses = new HashSet<>();
         getStudents()
