@@ -1,5 +1,6 @@
 package org.nkh.students_management;
 
+import org.nkh.courses_management.Course;
 import org.nkh.users_management.User;
 import org.nkh.users_management.UserRoles;
 import java.util.ArrayList;
