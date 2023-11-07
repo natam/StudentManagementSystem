@@ -1,4 +1,4 @@
-package org.nkh.students_management;
+package org.nkh.courses_management;
 
 public enum CourseActions {
     ADD,

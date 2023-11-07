@@ -84,6 +84,7 @@ public class UI {
                 }else out.println("You don't have permissions");
                 break;
             case "exit":
+                logout();
                 break;
             default:
                 out.println("Command is not defined.");
@@ -251,5 +252,9 @@ public class UI {
             users.getUserByUserName(userNameInput).ifPresent(user -> currentUser = user);
             currentUser.getUserRole().printModulesNavigationOptions();
         }
+    }
+
+    private void logout(){
+        currentUser = null;
     }
 }

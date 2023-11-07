@@ -4,7 +4,7 @@ import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
-import org.nkh.students_management.Course;
+import org.nkh.courses_management.Course;
 import org.nkh.students_management.Student;
 import org.nkh.students_management.Teacher;
 
