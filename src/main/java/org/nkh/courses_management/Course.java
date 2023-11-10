@@ -1,8 +1,11 @@
 package org.nkh.courses_management;
 
+import org.nkh.teachers_management.Teacher;
+
 public class Course {
     private int id;
     private String title;
+    private Teacher teacher;
     private double grade;
 
     public Course(int id, String title) {
@@ -32,5 +35,13 @@ public class Course {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

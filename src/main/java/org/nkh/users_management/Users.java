@@ -6,7 +6,7 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 import org.nkh.courses_management.Course;
 import org.nkh.students_management.Student;
-import org.nkh.students_management.Teacher;
+import org.nkh.teachers_management.Teacher;
 
 import java.util.*;
 
