@@ -11,6 +11,7 @@ public enum UserRoles {
             out.println("Select command you would like to implement from following:");
             out.println("3 - go to Users Management module");
             out.println("4 - go to Students Management module");
+            out.println("5 - go to Courses Management module");
             out.println("exit - exit the application");
         }
     },
@@ -18,7 +19,7 @@ public enum UserRoles {
         @Override
         public void printModulesNavigationOptions() {
             out.println("Select command you would like to implement from following:");
-            out.println("5 - go to my profile");
+            out.println("6 - go to my profile");
             out.println("exit - exit the application");
         }
     },
