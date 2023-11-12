@@ -20,7 +20,7 @@ public class Users {
         credentials = new HashMap<>();
     }
 
-    public boolean registerNewUser(String name, String email, String userName, String password, UserRoles role) {
+    public boolean addNewUser(String name, String email, String userName, String password, UserRoles role) {
         if (checkIfUserNameExist(userName)) {
             System.out.println("User with such userName already exists.");
             return false;
@@ -59,10 +59,6 @@ public class Users {
 
     public boolean checkIfUserNameExist(String userName) {
         return credentials.containsKey(userName);
-    }
-
-    public List<Student> getStudents() {
-        return users.stream().filter(user -> user.getUserRole() == UserRoles.STUDENT).map((user -> (Student) user)).toList();
     }
 
     public Optional<User> getUserByUserName(String userName) {
@@ -108,17 +104,20 @@ public class Users {
         }
     }
 
-    public boolean login(String userName, String password) {
-        Optional<User> user = getUserByUserName(userName);
-        if (user.isPresent()) {
-            if (user.get().getPassword().equals(password)) {
-                System.out.println("Welcome " + user.get().getName() + "!");
-                return true;
-            }
-        } else {
-            System.out.println("UserName or password is not valid");
-        }
-        return false;
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public List<Student> getStudents() {
+        return users.stream().filter(user -> user.getUserRole() == UserRoles.STUDENT).map((user -> (Student) user)).toList();
+    }
+
+    public List<Student> getStudentsByCourse(String courseTitle) {
+        return getStudents().stream().filter(student -> student.findCourse(courseTitle) != null).toList();
+    }
+
+    public List<Student> searchStudent(String query) {
+        return getStudents().stream().filter(user -> (user.getName().contains(query) || user.getEmail().contains(query) || String.valueOf(user.getId()).equals(query))).toList();
     }
 
     public void addOrUpdateGrade(String courseTitle, String studentName, double grade) {
@@ -130,14 +129,6 @@ public class Users {
         }
     }
 
-    public List<Student> getStudentsByCourse(String courseTitle) {
-        return getStudents().stream().filter(student -> student.findCourse(courseTitle) != null).toList();
-    }
-
-    public List<Student> searchStudent(String query) {
-        return getStudents().stream().filter(user -> (user.getName().contains(query) || user.getEmail().contains(query) || String.valueOf(user.getId()).equals(query))).toList();
-    }
-
     public Set<String> getAllCourses() {
         Set<String> courses = new HashSet<>();
         getStudents()
@@ -145,5 +136,13 @@ public class Users {
                 .map(student -> student.getTakenCourses().stream().map(Course::getTitle).toList())
                 .forEach(courses::addAll);
         return courses;
+    }
+
+    public List<Teacher> getTeachers(){
+        return users.stream().filter(user -> user.getUserRole() == UserRoles.TEACHER).map((user -> (Teacher) user)).toList();
+    }
+
+    public Optional<Teacher> getTeacherById(String id) {
+        return getTeachers().stream().filter(user -> (user.getId().equals(id))).findFirst();
     }
 }

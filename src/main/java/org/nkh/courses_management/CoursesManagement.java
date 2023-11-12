@@ -1,7 +1,7 @@
 package org.nkh.courses_management;
 
 import org.nkh.teachers_management.Teacher;
-import org.nkh.teachers_management.TeachersManagement;
+import org.nkh.users_management.Users;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,14 @@ import java.util.Optional;
 
 public class CoursesManagement {
     private List<Course> courses;
-    private TeachersManagement teachers;
-    public CoursesManagement(TeachersManagement teachers){
+    private Users users;
+    public CoursesManagement(Users users){
         courses = new ArrayList<>();
-        this.teachers = teachers;
+        this.users = users;
     }
 
     public void addCourse(Course course){
-        Optional<Teacher> foundTeacher = teachers.getTeacherById(course.getTeacher().getId());
+        Optional<Teacher> foundTeacher = users.getTeacherById(course.getTeacher().getId());
         if(foundTeacher.isPresent()){
             courses.add(course);
             foundTeacher.get().addCourse(course);

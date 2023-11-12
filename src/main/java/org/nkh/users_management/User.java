@@ -1,8 +1,14 @@
 package org.nkh.users_management;
 
 import jakarta.validation.constraints.Email;
+import org.nkh.courses_management.Course;
+import org.nkh.students_management.Student;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 public class User {
     private String id;
