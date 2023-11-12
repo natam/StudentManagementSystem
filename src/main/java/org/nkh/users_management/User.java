@@ -3,6 +3,8 @@ package org.nkh.users_management;
 import jakarta.validation.constraints.Email;
 import org.nkh.courses_management.Course;
 import org.nkh.students_management.Student;
+import org.nkh.utils.sorting.SortableById;
+import org.nkh.utils.sorting.SortableByName;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -10,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-public class User {
+public class User implements SortableByName, SortableById {
     private String id;
     private String name;
     @Email

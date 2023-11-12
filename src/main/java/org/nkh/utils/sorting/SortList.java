@@ -4,15 +4,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SortList {
-    public List<SortableById> sortById(List<SortableById> objects){
+    public static List<?> sortById(List<? extends SortableById> objects){
         return objects.stream().sorted(Comparator.comparing(SortableById::getId)).toList();
     }
 
-    public List<SortableByName> sortByName(List<SortableByName> objects){
+    public static List<?> sortByName(List<? extends SortableByName> objects){
         return objects.stream().sorted(Comparator.comparing(SortableByName::getName)).toList();
     }
 
-    public List<SortableByTitle> sortByTitle(List<SortableByTitle> objects){
+    public static List<?> sortByTitle(List<? extends SortableByTitle> objects){
         return objects.stream().sorted(Comparator.comparing(SortableByTitle::getTitle)).toList();
     }
 }

@@ -6,12 +6,15 @@ import org.nkh.users_management.User;
 import org.nkh.users_management.UserRoles;
 import org.nkh.users_management.Users;
 import org.nkh.utils.Utils;
+import org.nkh.utils.sorting.SortList;
+import org.nkh.utils.sorting.SortableById;
 
 import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.System.in;
 import static java.lang.System.out;
+import static org.nkh.utils.sorting.SortList.*;
 
 public class UIActions {
     private Authentication authentication;
@@ -44,6 +47,7 @@ public class UIActions {
         out.println("13 - edit student");
         out.println("14 - delete student");
         out.println("15 - update student's grade");
+        out.println("16 - sort students");
         out.println("exit - exit the application");
     }
 
@@ -137,6 +141,17 @@ public class UIActions {
         String name = printAndReadOutput("Enter student name:");
         String email = printAndReadOutput("Enter student email:");
         users.addNewUser(name, email, null, null, UserRoles.STUDENT);
+    }
+
+    public void sortAndPrintStudents(){
+        String sortingField = printAndReadOutput("Enter field to sort name/id:");
+        if(sortingField.equalsIgnoreCase("id")) {
+            Utils.print(sortById(users.getStudents()));
+        }else if(sortingField.equalsIgnoreCase("name")){
+            Utils.print(sortByName(users.getStudents()));
+        }else {
+            out.println("Not valid field for sorting");
+        }
     }
 
     protected void searchUsers() {

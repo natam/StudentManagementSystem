@@ -23,6 +23,5 @@ public class CoursesManagement {
         }else {
             System.out.println("Can not add course. Teacher " + course.getTeacher().getName() + " not found in the system");
         }
-
     }
 }

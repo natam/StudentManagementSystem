@@ -193,6 +193,19 @@ public enum MenuOptions {
             return List.of(UserRoles.TEACHER);
         }
     },
+    SORT_STUDENTS("16"){
+        @Override
+        void implementAction(UIActions uiActions) {
+            if(this.getUserRoles().contains(uiActions.getCurrentUserRole())){
+                uiActions.sortAndPrintStudents();
+            }System.out.println("You don't have permissions for this action");
+        }
+
+        @Override
+        List<UserRoles> getUserRoles() {
+            return List.of(UserRoles.ADMIN, UserRoles.TEACHER);
+        }
+    },
     EXIT("exit") {
         @Override
         void implementAction(UIActions uiActions) {
@@ -203,7 +216,7 @@ public enum MenuOptions {
             return List.of(UserRoles.ADMIN,UserRoles.TEACHER, UserRoles.STUDENT);
         }
     };
-    String value;
+    final String value;
 
     MenuOptions(String value) {
         this.value = value;

@@ -3,12 +3,15 @@ package org.nkh.students_management;
 import org.nkh.courses_management.Course;
 import org.nkh.users_management.User;
 import org.nkh.users_management.UserRoles;
+import org.nkh.utils.sorting.SortableById;
+import org.nkh.utils.sorting.SortableByName;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Student extends User {
+public class Student extends User implements SortableById, SortableByName {
     private int age;
     private List<Course> takenCourses;
 
